@@ -1,11 +1,9 @@
-// [  0 ,   1  ,   2  ,   3   ]
-// [Bill, Value, Stash, toGive]
-
 var matrix = [
-["Hundreds",100,10,0],
-["Fifties",50,10,0],
-["Twenties",20,10,0],
-["Tens",10,10,0]
+// [Bill   , Value, Stash, toGive]
+["Hundreds",  100 ,  10  ,  0    ],
+["Fifties" ,   50 ,  10  ,  0    ],
+["Twenties",   20 ,  10  ,  0    ],
+["Tens"    ,   10 ,  10  ,  0    ]
 ];
 
 var withdraw = 340;
