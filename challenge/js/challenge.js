@@ -1,44 +1,25 @@
-var withdraw = 6040;
+// [  0 ,   1  ,   2  ,   3   ]
+// [Bill, Value, Stash, toGive]
 
-var stash_hundreds = 10;
-var stash_fifties = 10;
-var stash_twenties = 10;
-var stash_tens = 10;
-var no_withdraw = 0;
+var matrix = [
+["Hundreds",100,10,0],
+["Fifties",50,10,0],
+["Twenties",20,10,0],
+["Tens",10,10,0]
+];
 
-var hundreds = Math.floor(withdraw/100);
-var rest = withdraw%100;
+var withdraw = 340;
+var rest = withdraw;
 
-if (stash_hundreds < hundreds) {
-	rest+=(hundreds-stash_hundreds)*100;
-	hundreds = stash_hundreds;
-}
-
-var fifties = Math.floor(rest/50);
-rest%=50;
-
-if (stash_fifties < fifties) {
-	rest+=(fifties-stash_fifties)*50;
-	fifties = stash_fifties;
-}
-
-var twenties = Math.floor(rest/20);
-rest%=20;
-
-if (stash_twenties < twenties) {
-	rest+=(twenties-stash_twenties)*20;
-	twenties=stash_twenties;
-}
-
-var tens = Math.floor(rest/10);
-rest%=10;
-
-if (stash_tens < tens) {
-	rest+=(tens-stash_tens)*10;
-	tens=stash_tens;
-	no_withdraw = rest;
+for (var i = 0; i < matrix.length; i++) {
+	matrix[i][3]=Math.floor(rest/matrix[i][1]);
+	rest%=matrix[i][1];
+	if (matrix[i][2] < matrix[i][3]) {
+		rest+=(matrix[i][3]-matrix[i][2])*matrix[i][1];
+		matrix[i][3]=matrix[i][2];
+	}
 }
 
 document.write("Amout you want to withdraw: "+withdraw);
-document.write("<br>You get: "+hundreds+" Hundreds, "+fifties+" Fifties, "+twenties+" Twenties, "+tens+" Tens.")
-document.write("<br>Could not be withdrawn: "+no_withdraw);
+document.write("<br>You get: "+matrix[0][3]+" Hundreds, "+matrix[1][3]+" Fifties, "+matrix[2][3]+" Twenties, "+matrix[3][3]+" Tens.")
+document.write("<br>Could not be withdrawn: "+rest);
