@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <script>
+        var temperature = (Math.random() * 40) - 5
+        if (temperature > 20) {
+            document.write("The weather is hot <br>")
+            document.write('<img src=img/hot.png>')
+            document.style.backgroundColor = '#99C262';
+        } else if (temperature > 10) {
+            document.write("The weather is moderate <br>")
+            document.write('<img src=img/warm.png> ')
+        } else {
+            document.write("The weather is cold <br>")
+            document.write('<img src=img/cold.png>')
+        }
+    </script>
+</body>
+
+</html>
